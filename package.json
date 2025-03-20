@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun --watch ./api/index.ts"
+    "dev": "bun --watch ./api/index.ts",
+    "start": "vercel dev",
+    "deploy": "vercel"
   },
   "devDependencies": {
     "@types/bun": "latest"
