@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun --watch ./api/index.ts"
+    "dev": "bun --watch ./api/index.ts",
+    "start": "vercel dev",
+    "deploy": "vercel"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -13,6 +15,8 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "hono": "^4.7.5"
+    "@hono/zod-validator": "^0.4.3",
+    "hono": "^4.7.5",
+    "zod": "^3.24.2"
   }
 }
