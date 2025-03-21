@@ -18,24 +18,39 @@ const fakeExpenses: Expense[] = [
   {
     id: 1,
     title: "Rent",
-    amount: 1000,
+    amount: 1023,
   },
   {
     id: 2,
     title: "Food",
-    amount: 100,
+    amount: 500,
   },
   {
     id: 3,
     title: "Internet",
-    amount: 50,
+    amount: 1230,
   },
 ];
 
 const expenses = new Hono()
-  .get("/", (c) => {
+  .get("/list-expenses", (c) => {
     return c.json([...fakeExpenses]);
   })
+
+  .get("/total-spent", (c) => {
+    const total = fakeExpenses.reduce((acc, curr) => acc + curr.amount, 0);
+    return c.json({ total });
+    })
+
+    .get("/:id{[0-9]+}", (c) => {
+    const id = parseInt(c.req.param("id"));
+    const expenseById = fakeExpenses.find((expense) => expense.id === id);
+    if (!expenseById) {
+      return c.json({ message: "expense not found" }, 404);
+    }
+    return c.json(expenseById);
+  })
+
   .post("/", zValidator("json", postExpense), (c) => {
     const data = c.req.valid("json");
     const expenseData = postExpense.parse(data);
@@ -49,6 +64,7 @@ const expenses = new Hono()
       amount: expenseData.amount,
     });
   });
+
 // .put
 // .delete
 
