@@ -33,7 +33,8 @@ const fakeExpenses: Expense[] = [
 ];
 
 const expenses = new Hono()
-  .get("/list-expenses", (c) => {
+  .get("/list-expenses",  (c) => {
+    // await new Promise((resolve) => setTimeout(resolve, 4000));
     return c.json([...fakeExpenses]);
   })
 
