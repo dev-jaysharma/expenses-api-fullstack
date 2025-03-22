@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "bun --watch ./api/index.ts",
+    "serve": "lt --port 3000 --subdomain expenses",
     "start": "bun ./api/index.ts"
   },
   "devDependencies": {
