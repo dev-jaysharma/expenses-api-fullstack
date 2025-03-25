@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import type { AnyFieldApi } from "@tanstack/react-form";
 import { useForm } from "@tanstack/react-form";
 import { createFileRoute } from "@tanstack/react-router";
+import api from "@/lib/apiCon";
 
 export const Route = createFileRoute("/create-expense")({
   component: RouteComponent,
@@ -36,6 +37,10 @@ function RouteComponent() {
     },
     onSubmit: async ({ value }) => {
       // Do something with form data
+      const res = await api.expenses.create.$post({json : value})
+      if (!res.ok) {
+        throw new Error("error posting the data");
+      }
       console.log(value);
     },
   });

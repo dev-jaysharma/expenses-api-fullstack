@@ -52,7 +52,7 @@ const expenses = new Hono()
     return c.json(expenseById);
   })
 
-  .post("/", zValidator("json", postExpense), (c) => {
+  .post("/create", zValidator("json", postExpense), (c) => {
     const data = c.req.valid("json");
     const expenseData = postExpense.parse(data);
     // just for demo purposes, we are adding the new expense to the fakeExpenses array
