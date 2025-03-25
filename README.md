@@ -1,15 +1,2 @@
-# hono-bun
-
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.5. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+# EXPENSE TRACKER with AI
+a simple app to simplify the process of expense tracking 
