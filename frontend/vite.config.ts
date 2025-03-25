@@ -25,6 +25,5 @@ export default defineConfig({
         secure: false, // Add this if using HTTPS
       },
     },
-     // Add this line to allow the host
   },
 });
